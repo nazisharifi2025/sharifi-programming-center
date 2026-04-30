@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('lastName');
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('img_url')->nullable();
+            $table->string('phone_number');
+            $table->string('tazkira_no')->nullable();
             $table->timestamps();
         });
     }
