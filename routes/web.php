@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Student\ListStudents;
+use App\Livewire\Teacher\ListTeachers;
+use App\Livewire\Users\ListUsers;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -19,4 +22,9 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/manage-sudents' , ListStudents::class)->name('sudent.index');
+    Route::get('/manage-teacher' , ListTeachers::class)->name('teacer.index');
+    Route::get('/manage-user' , ListUsers::class)->name('user.index');
+});
 require __DIR__.'/auth.php';
