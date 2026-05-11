@@ -23,8 +23,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/manage-sudents' , ListStudents::class)->name('sudent.index');
-    Route::get('/manage-teacher' , ListTeachers::class)->name('teacer.index');
+    Route::get('/manage-sudents' , ListStudents::class)->name('student.index');
+    Route::get('/manage-teacher' , ListTeachers::class)->name('teacher.index');
     Route::get('/manage-user' , ListUsers::class)->name('user.index');
 });
 require __DIR__.'/auth.php';
