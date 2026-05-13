@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->text('description');
             $table->string('banner_url');
-            $table->foreignId('teacher_id')->constrained('teachers');
+            $table->foreignId('teacher_id')->constrained('teachers')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

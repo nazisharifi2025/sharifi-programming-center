@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->integer('amount');
-            $table->foreignId('student_id')->constrained('students','id');
-            $table->foreignId('sinf_id')->constrained('sinfs','id');
+            $table->foreignId('student_id')->constrained('students','id')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('sinf_id')->constrained('sinfs','id')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

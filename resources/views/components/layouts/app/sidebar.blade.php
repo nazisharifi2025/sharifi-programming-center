@@ -27,6 +27,10 @@
                     <flux:navlist.item icon="home" :href="route('teacher.index')" :current="request()->routeIs('teacher.index')" wire:navigate>Teacher</flux:navlist.item>
                     <flux:navlist.item icon="home" :href="route('student.index')" :current="request()->routeIs('student.index')" wire:navigate>Student</flux:navlist.item>
                 </flux:navlist.group>
+                <flux:navlist.group heading="بخش حساب داری" class="grid">
+                    <flux:navlist.item icon="home" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>student payments</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('teacher.index')" :current="request()->routeIs('teacher.index')" wire:navigate>Teacher Salaree</flux:navlist.item>
+                </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />

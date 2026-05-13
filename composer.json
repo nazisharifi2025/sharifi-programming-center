@@ -8,7 +8,7 @@
     "require": {
         "php": "^8.2",
         "filament/actions": "~4.0",
-        "filament/filament": "^2.0@beta",
+        "filament/filament": "^4.11",
         "filament/forms": "~4.0",
         "filament/notifications": "~4.0",
         "filament/schemas": "~4.0",
