@@ -23,13 +23,14 @@
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>Dashboard</flux:navlist.item>
                 </flux:navlist.group>
                 <flux:navlist.group heading="Management" class="grid">
-                    <flux:navlist.item icon="home" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>User</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('teacher.index')" :current="request()->routeIs('teacher.index')" wire:navigate>Teacher</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('student.index')" :current="request()->routeIs('student.index')" wire:navigate>Student</flux:navlist.item>
+                    <flux:navlist.item icon="user-group" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>Manage User</flux:navlist.item>
+                    <flux:navlist.item icon="user-circle" :href="route('teacher.index')" :current="request()->routeIs('teacher.index')" wire:navigate>Manage Teacher</flux:navlist.item>
+                    <flux:navlist.item icon="academic-cap" :href="route('student.index')" :current="request()->routeIs('student.index')" wire:navigate>Manage Student</flux:navlist.item>
+                    <flux:navlist.item icon="building-library" :href="route('senf.index')" :current="request()->routeIs('senf.index')" wire:navigate>Mange Class</flux:navlist.item>
                 </flux:navlist.group>
-                <flux:navlist.group heading="بخش حساب داری" class="grid">
-                    <flux:navlist.item icon="home" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>student payments</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('teacher.index')" :current="request()->routeIs('teacher.index')" wire:navigate>Teacher Salaree</flux:navlist.item>
+                <flux:navlist.group heading="Finance" class="grid">
+                    <flux:navlist.item icon="banknotes" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>student payments</flux:navlist.item>
+                    <flux:navlist.item icon="scale" :href="route('teacher.index')" :current="request()->routeIs('teacher.index')" wire:navigate>Teacher Salaries</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
