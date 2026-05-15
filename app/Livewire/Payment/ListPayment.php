@@ -29,6 +29,7 @@ class ListPayment extends Component implements HasActions, HasSchemas, HasTable
             ->query(fn (): Builder => payment::query())
             ->columns([
                 TextColumn::make('student.user.name')->searchable()->sortable()->label('Student Name'),
+                TextColumn::make('sinf.title'),
             ])
             ->filters([
                 //
