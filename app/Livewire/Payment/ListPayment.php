@@ -3,6 +3,7 @@
 namespace App\Livewire\Payment;
 
 use App\Models\payment;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -39,7 +40,16 @@ class ListPayment extends Component implements HasActions, HasSchemas, HasTable
                 //
             ])
             ->recordActions([
-                //
+        Action::make('delete')
+    ->requiresConfirmation()
+    ->action(fn (payment $record) => $record->delete($record->id))
+    ->failureNotificationTitle(function (int $successCount, int $totalCount): string {
+        if ($successCount) {
+            return "{$successCount} of {$totalCount} users deleted";
+        }
+
+        return 'Failed to delete any users';
+    })
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
