@@ -30,6 +30,7 @@ class ListPayment extends Component implements HasActions, HasSchemas, HasTable
             ->columns([
                 TextColumn::make('student.user.name')->searchable()->sortable()->label('Student Name'),
                 TextColumn::make('sinf.title')->sortable()->searchable()->label('Course Name'),
+                TextColumn::make('amount'),
             ])
             ->filters([
                 //
