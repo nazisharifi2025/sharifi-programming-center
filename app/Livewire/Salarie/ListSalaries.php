@@ -28,7 +28,11 @@ class ListSalaries extends Component implements HasActions, HasSchemas, HasTable
         return $table
             ->query(fn (): Builder => salarie::query())
             ->columns([
-                TextColumn::make('teacher.user.name')->label('Teacher Name')->searchable()->sortable(),
+                TextColumn::make('teacher.user.name')->label('Teacher Name')->sortable()->searchable(),
+                TextColumn::make('amount')->badge(),
+                TextColumn::make('year'),
+                TextColumn::make('month'),
+                TextColumn::make('day'),
             ])
             ->filters([
                 //
