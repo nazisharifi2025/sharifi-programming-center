@@ -30,6 +30,7 @@ class ListStudents extends Component implements HasActions, HasSchemas, HasTable
             ->columns([
                 TextColumn::make('user.name')->label("Name")->searchable()->sortable(),
                 TextColumn::make('user.email')->label("Email")->searchable(),
+                TextColumn::make('payment.sinf.title')->separator(','),
                 TextColumn::make('lastName'),
                 TextColumn::make("phone_number"),
                 TextColumn::make("tazkir_no")->toggleable(isToggledHiddenByDefault: true),
