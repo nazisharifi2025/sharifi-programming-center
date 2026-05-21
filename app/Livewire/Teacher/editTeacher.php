@@ -5,6 +5,7 @@ namespace App\Livewire\Teacher;
 use App\Models\Teacher;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
@@ -29,9 +30,14 @@ class editTeacher extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-                //
+                TextInput::make('lastName'),
+                TextInput::make('degree_of_ducation'),
+                TextInput::make('phone_number'),
+                TextInput::make('image_url'),
+                TextInput::make('bio'),
             ])
             ->statePath('data')
+            ->columns(2)
             ->model($this->record);
     }
 

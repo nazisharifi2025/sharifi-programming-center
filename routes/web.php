@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Payment\EditPayment;
 use App\Livewire\Payment\EditPaymentt;
 use App\Livewire\Payment\ListPayment;
 use App\Livewire\Salarie\ListSalaries;
@@ -30,13 +31,13 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/manage-sudents' , ListStudents::class)->name('student.index');
-    Route::get('/edit-sudents' , editstudent::class)->name('student.edit');
+    Route::get('/edit-students/{record}' , editstudent::class)->name('student.edit');
     Route::get('/manage-teacher' , ListTeachers::class)->name('teacher.index');
-    Route::get('/edit-teacher' , editTeacher::class)->name('teacher.edit');
+    Route::get('/edit-teacher/{record}' , editTeacher::class)->name('teacher.edit');
     Route::get('/manage-user' , ListUsers::class)->name('user.index');
     Route::get('/manage-senf' , ListSinfs::class)->name('senf.index');
     Route::get('/manage-payment' , ListPayment::class)->name('payment.index');
-    Route::get('/edit-payment' , EditPaymentt::class)->name('payment.edit');
+    Route::get('/edit-payment/{record}' , EditPaymentt::class)->name('payment.edit');
     Route::get('/manage-salarie' , ListSalaries::class)->name('salarie.index');
 });
 require __DIR__.'/auth.php';

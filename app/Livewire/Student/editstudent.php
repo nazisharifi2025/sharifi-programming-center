@@ -5,6 +5,7 @@ namespace App\Livewire\Student;
 use App\Models\Student;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
@@ -30,9 +31,13 @@ class editstudent extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-                //
+                TextInput::make('lastName'),
+                TextInput::make('img_url'),
+                TextInput::make('phone_number'),
+                TextInput::make('tazkira_no'),
             ])
             ->statePath('data')
+            ->columns(2)
             ->model($this->record);
     }
 
