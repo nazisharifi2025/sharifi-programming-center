@@ -1,9 +1,12 @@
 <?php
 
+use App\Livewire\Payment\EditPaymentt;
 use App\Livewire\Payment\ListPayment;
 use App\Livewire\Salarie\ListSalaries;
 use App\Livewire\Sinf\ListSinfs;
+use App\Livewire\Student\editstudent;
 use App\Livewire\Student\ListStudents;
+use App\Livewire\Teacher\editTeacher;
 use App\Livewire\Teacher\ListTeachers;
 use App\Livewire\Users\ListUsers;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +30,13 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/manage-sudents' , ListStudents::class)->name('student.index');
+    Route::get('/edit-sudents' , editstudent::class)->name('student.edit');
     Route::get('/manage-teacher' , ListTeachers::class)->name('teacher.index');
+    Route::get('/edit-teacher' , editTeacher::class)->name('teacher.edit');
     Route::get('/manage-user' , ListUsers::class)->name('user.index');
     Route::get('/manage-senf' , ListSinfs::class)->name('senf.index');
     Route::get('/manage-payment' , ListPayment::class)->name('payment.index');
+    Route::get('/edit-payment' , EditPaymentt::class)->name('payment.edit');
     Route::get('/manage-salarie' , ListSalaries::class)->name('salarie.index');
 });
 require __DIR__.'/auth.php';
