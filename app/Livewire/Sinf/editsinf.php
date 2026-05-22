@@ -33,7 +33,8 @@ class editsinf extends Component implements HasActions, HasSchemas
                 TextInput::make('start_date'),
                 TextInput::make('end_date'),
                 TextInput::make('description'),
-                TextInput::make('banner Url'),
+                TextInput::make('banner_Url'),
+                TextInput::make('teacher_id'),
             ])
             ->statePath('data')
             ->model($this->record);
