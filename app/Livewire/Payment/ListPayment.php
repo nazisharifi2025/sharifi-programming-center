@@ -46,7 +46,7 @@ class ListPayment extends Component implements HasActions, HasSchemas, HasTable
 
    Action::make('delete')
     ->requiresConfirmation()
-    ->action(fn (payment $record) => $record->delete())
+    ->action(fn (payment $record) => $record->delete($record->id))
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
