@@ -6,6 +6,8 @@ use App\Models\sinf;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
@@ -33,7 +35,7 @@ class editsinf extends Component implements HasActions, HasSchemas
                 TextInput::make('title'),
                 DatePicker::make('start_date'),
                 DatePicker::make('end_date'),
-                TextInput::make('description'),
+                Textarea::make('description'),
                 TextInput::make('banner_Url'),
                 TextInput::make('teacher_id'),
             ])
