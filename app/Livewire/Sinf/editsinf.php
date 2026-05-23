@@ -5,6 +5,7 @@ namespace App\Livewire\Sinf;
 use App\Models\sinf;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
@@ -30,8 +31,8 @@ class editsinf extends Component implements HasActions, HasSchemas
         return $schema
             ->components([
                 TextInput::make('title'),
-                TextInput::make('start_date'),
-                TextInput::make('end_date'),
+                DatePicker::make('start_date'),
+                DatePicker::make('end_date'),
                 TextInput::make('description'),
                 TextInput::make('banner_Url'),
                 TextInput::make('teacher_id'),
