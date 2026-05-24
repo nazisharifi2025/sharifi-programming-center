@@ -3,6 +3,7 @@
 use App\Livewire\Payment\EditPayment;
 use App\Livewire\Payment\EditPaymentt;
 use App\Livewire\Payment\ListPayment;
+use App\Livewire\Salarie\editSalarie;
 use App\Livewire\Salarie\ListSalaries;
 use App\Livewire\Sinf\editsinf;
 use App\Livewire\Sinf\ListSinfs;
@@ -41,5 +42,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manage-payment' , ListPayment::class)->name('payment.index');
     Route::get('/edit-payment/{record}' , EditPaymentt::class)->name('payment.edit');
     Route::get('/manage-salarie' , ListSalaries::class)->name('salarie.index');
+    Route::get('/edit-salarie' , editSalarie::class)->name('salarie.edit');
 });
 require __DIR__.'/auth.php';
