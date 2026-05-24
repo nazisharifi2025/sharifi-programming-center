@@ -13,6 +13,7 @@ use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Masterminds\HTML5\Parser\FileInputStream;
 
 class editsinf extends Component implements HasActions, HasSchemas
 {
