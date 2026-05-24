@@ -36,7 +36,7 @@ class editsinf extends Component implements HasActions, HasSchemas
                 DatePicker::make('start_date'),
                 DatePicker::make('end_date'),
                 Textarea::make('description'),
-                TextInput::make('banner_Url'),
+                FileInput::make('banner_Url'),
                 TextInput::make('teacher_id'),
             ])
             ->statePath('data')
