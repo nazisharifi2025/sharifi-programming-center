@@ -4,6 +4,7 @@ use App\Livewire\Payment\EditPayment;
 use App\Livewire\Payment\EditPaymentt;
 use App\Livewire\Payment\ListPayment;
 use App\Livewire\Salarie\ListSalaries;
+use App\Livewire\Sinf\editsinf;
 use App\Livewire\Sinf\ListSinfs;
 use App\Livewire\Student\editstudent;
 use App\Livewire\Student\ListStudents;
@@ -36,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-teacher/{record}' , editTeacher::class)->name('teacher.edit');
     Route::get('/manage-user' , ListUsers::class)->name('user.index');
     Route::get('/manage-senf' , ListSinfs::class)->name('senf.index');
+    Route::get('/edit-senf' , editsinf::class)->name('senf.edit');
     Route::get('/manage-payment' , ListPayment::class)->name('payment.index');
     Route::get('/edit-payment/{record}' , EditPaymentt::class)->name('payment.edit');
     Route::get('/manage-salarie' , ListSalaries::class)->name('salarie.index');

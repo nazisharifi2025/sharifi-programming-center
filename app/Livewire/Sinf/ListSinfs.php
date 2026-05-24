@@ -48,7 +48,7 @@ class ListSinfs extends Component implements HasActions, HasSchemas, HasTable
             ])
             ->recordActions([
                     Action::make('edit')
-    ->url(fn (sinf $record): string => route('student.edit', $record))
+    ->url(fn (sinf $record): string => route('senf.edit', $record))
     ->openUrlInNewTab(),
 
    Action::make('delete')
