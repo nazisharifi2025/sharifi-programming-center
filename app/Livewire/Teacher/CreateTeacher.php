@@ -5,6 +5,7 @@ namespace App\Livewire\Teacher;
 use App\Models\Teacher;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
@@ -33,6 +34,7 @@ class CreateTeacher extends Component implements HasActions, HasSchemas
               TextInput::make('degree_of_ducation'),
               TextInput::make('phone_number'),
               FileInput::make('image_url'),
+              Textarea::make('bio'),
             ])
             ->statePath('data')
             ->model(Teacher::class);
