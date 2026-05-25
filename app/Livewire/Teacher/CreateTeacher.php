@@ -2,14 +2,16 @@
 
 namespace App\Livewire\Teacher;
 
+use App\Models\Teacher;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use Teacher;
+
 
 class CreateTeacher extends Component implements HasActions, HasSchemas
 {
@@ -27,7 +29,7 @@ class CreateTeacher extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-                //
+              TextInput::make('last_name'),
             ])
             ->statePath('data')
             ->model(Teacher::class);
