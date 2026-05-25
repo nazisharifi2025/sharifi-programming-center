@@ -30,6 +30,7 @@ class CreateTeacher extends Component implements HasActions, HasSchemas
         return $schema
             ->components([
               TextInput::make('last_name'),
+              TextInput::make('degree_of_ducation'),
             ])
             ->statePath('data')
             ->model(Teacher::class);
