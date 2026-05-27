@@ -30,6 +30,8 @@ class CreateStudent extends Component implements HasActions, HasSchemas
                TextInput::make('lastName'),
                TextInput::make('user_id'),
                FileInput::make('img_url'),
+               TextInput::make('phone_number'),
+               TextInput::make('tazkira_no'),
             ])
             ->statePath('data')
             ->model(Student::class);
