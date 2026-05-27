@@ -9,7 +9,7 @@ use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use Student;
+use App\Model\Student;
 
 class CreateStudent extends Component implements HasActions, HasSchemas
 {
@@ -27,7 +27,7 @@ class CreateStudent extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-                //
+               TextInput::make('lastName'),
             ])
             ->statePath('data')
             ->model(Student::class);
