@@ -28,6 +28,7 @@ class CreateStudent extends Component implements HasActions, HasSchemas
         return $schema
             ->components([
                TextInput::make('lastName'),
+               TextInput::make('user_id'),
             ])
             ->statePath('data')
             ->model(Student::class);
