@@ -9,7 +9,8 @@ use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use App\Model\Student;
+use App\Models\Student;
+use Filament\Forms\Components\TextInput;
 
 class CreateStudent extends Component implements HasActions, HasSchemas
 {
