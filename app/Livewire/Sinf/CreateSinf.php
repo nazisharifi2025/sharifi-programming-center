@@ -31,6 +31,7 @@ class CreateSinf extends Component implements HasActions, HasSchemas
                 TextInput::make('title'),
                 TextInput::make('start_date'),
                 TextInput::make('end_date'),
+                TextInput::make('description'),
             ])
             ->statePath('data')
             ->model(sinf::class);
