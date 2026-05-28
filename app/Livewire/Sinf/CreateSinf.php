@@ -29,6 +29,7 @@ class CreateSinf extends Component implements HasActions, HasSchemas
         return $schema
             ->components([
                 TextInput::make('title'),
+                TextInput::make('start_date'),
                 
             ])
             ->statePath('data')
