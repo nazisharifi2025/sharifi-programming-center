@@ -9,7 +9,8 @@ use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use sinf;
+use APP\Models\sinf;
+use Filament\Forms\Components\TextInput;
 
 class CreateSinf extends Component implements HasActions, HasSchemas
 {
@@ -27,7 +28,8 @@ class CreateSinf extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-                //
+                TextInput::make('title'),
+                
             ])
             ->statePath('data')
             ->model(sinf::class);
