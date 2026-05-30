@@ -29,6 +29,7 @@ class CreatePayment extends Component implements HasActions, HasSchemas
             ->components([
                 TextInput::make('amount'),
                 TextInput::make('student_id'),
+                TextInput::make('sinf_id'),
             ])
             ->statePath('data')
             ->model(payment::class);
