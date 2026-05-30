@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 namespace App\Livewire\Payment;
 
@@ -27,7 +27,7 @@ class CreatePayment extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-                //
+                TextInput::make('amount'),
             ])
             ->statePath('data')
             ->model(payment::class);
