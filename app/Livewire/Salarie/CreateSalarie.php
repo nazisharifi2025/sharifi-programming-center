@@ -30,6 +30,7 @@ class CreateSalarie extends Component implements HasActions, HasSchemas
               TextInput::make('year'),
               TextInput::make('month'),
               TextInput::make('day'),
+              TextInput::make('teacher_id'),
             ])
             ->statePath('data')
             ->model(salarie::class);
