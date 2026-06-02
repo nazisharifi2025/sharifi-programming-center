@@ -26,7 +26,7 @@ class Admins extends Component implements HasActions, HasSchemas, HasTable
         return $table
             ->query(fn (): Builder => Admin::query())
             ->columns([
-                //
+                TextInput::make('lastName'),
             ])
             ->filters([
                 //
