@@ -28,6 +28,7 @@ class Admins extends Component implements HasActions, HasSchemas, HasTable
             ->columns([
                 TextInput::make('lastName'),
                 FileInput::make('image_url'),
+                TextInput::make('bio')
             ])
             ->filters([
                 //
