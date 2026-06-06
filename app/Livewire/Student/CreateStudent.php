@@ -10,6 +10,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use App\Models\Student;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 
 class CreateStudent extends Component implements HasActions, HasSchemas
@@ -30,7 +31,7 @@ class CreateStudent extends Component implements HasActions, HasSchemas
             ->components([
                TextInput::make('lastName'),
                TextInput::make('user_id'),
-            //    FileInput::make('img_url'),
+               FileUpload::make('img_url'),
                TextInput::make('phone_number'),
                TextInput::make('tazkira_no'),
             ])
