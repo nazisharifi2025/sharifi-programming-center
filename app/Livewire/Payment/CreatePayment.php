@@ -1,7 +1,5 @@
  <?php
 
-namespace App\Livewire\Payment;
-
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
@@ -9,7 +7,8 @@ use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use payment;
+use App\Models\payment;
+use Filament\Forms\Components\TextInput;
 
 class CreatePayment extends Component implements HasActions, HasSchemas
 {

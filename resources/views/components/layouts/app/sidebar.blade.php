@@ -26,10 +26,12 @@
                     <flux:navlist.item icon="user-group" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>Manage User</flux:navlist.item>
                     <flux:navlist.item icon="user-circle" :href="route('teacher.index')" :current="request()->routeIs('teacher.index')" wire:navigate>Manage Teacher</flux:navlist.item>
                     <flux:navlist.item icon="academic-cap" :href="route('student.index')" :current="request()->routeIs('student.index')" wire:navigate>Manage Student</flux:navlist.item>
+                    <flux:navlist.item icon="academic-cap" :href="route('student.create')" :current="request()->routeIs('student.create')" wire:navigate>Manage Student</flux:navlist.item>
                     <flux:navlist.item icon="building-library" :href="route('senf.index')" :current="request()->routeIs('senf.index')" wire:navigate>Mange Class</flux:navlist.item>
                 </flux:navlist.group>
                 <flux:navlist.group heading="Finance" class="grid">
                     <flux:navlist.item icon="banknotes" :href="route('payment.index')" :current="request()->routeIs('payment.index')" wire:navigate>student payments</flux:navlist.item>
+                    {{-- <flux:navlist.item icon="banknotes" :href="route('payment.create')" :current="request()->routeIs('payment.create')" wire:navigate>create payments</flux:navlist.item> --}}
                     <flux:navlist.item icon="scale" :href="route('salarie.index')" :current="request()->routeIs('salarie.index')" wire:navigate>Teacher Salaries</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
