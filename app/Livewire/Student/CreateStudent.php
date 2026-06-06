@@ -12,6 +12,7 @@ use Livewire\Component;
 use App\Models\Student;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 
 class CreateStudent extends Component implements HasActions, HasSchemas
 {
@@ -29,11 +30,13 @@ class CreateStudent extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-               TextInput::make('lastName'),
+              Section::make('Create new Teacher')->description('Add New Teacher')->schema([
+                TextInput::make('lastName'),
                TextInput::make('user_id'),
                FileUpload::make('img_url'),
                TextInput::make('phone_number'),
                TextInput::make('tazkira_no'),
+               ])
             ])
             ->statePath('data')
             ->model(Student::class);
