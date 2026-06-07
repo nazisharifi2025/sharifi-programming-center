@@ -5,6 +5,7 @@ namespace App\Livewire\Teacher;
 use App\Models\Teacher;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
@@ -30,10 +31,10 @@ class CreateTeacher extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-              TextInput::make('last_name'),
+              TextInput::make('lastName'),
               TextInput::make('degree_of_ducation'),
               TextInput::make('phone_number'),
-              FileInput::make('image_url'),
+              FileUpload::make('image_url')->directory('teacher_images')->visibility('public'),
               Textarea::make('bio'),
               TextInput::make('user_id'),
             ])

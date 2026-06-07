@@ -9,7 +9,9 @@ use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use APP\Models\sinf;
+use App\Models\sinf;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 
 class CreateSinf extends Component implements HasActions, HasSchemas
@@ -29,10 +31,10 @@ class CreateSinf extends Component implements HasActions, HasSchemas
         return $schema
             ->components([
                 TextInput::make('title'),
-                TextInput::make('start_date'),
-                TextInput::make('end_date'),
+                DateTimePicker::make('start_date'),
+                DateTimePicker::make('end_date'),
                 TextInput::make('description'),
-                FileInput::make('banner_url'),
+                FileUpload::make('banner_url')->directory('sinf_images')->visibility('public'),
                 TextInput::make('teacher_id'),
             ])
             ->statePath('data')

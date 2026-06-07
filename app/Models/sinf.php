@@ -8,8 +8,8 @@ class sinf extends Model
 {
     protected $fillable = [
         "title",
-        "start_date ",
-        "end_date ",
+        "start_date",
+        "end_date",
         "description",
         "banner_url",
         "teacher_id"
