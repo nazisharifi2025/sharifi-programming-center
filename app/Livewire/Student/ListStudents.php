@@ -9,6 +9,7 @@ use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -32,6 +33,7 @@ class ListStudents extends Component implements HasActions, HasSchemas, HasTable
                 TextColumn::make('user.email')->label("Email")->searchable(),
                 TextColumn::make('payment.sinf.title')->separator(','),
                 TextColumn::make('lastName'),
+                ImageColumn::make('img_url'),
                 TextColumn::make("phone_number"),
                 TextColumn::make("tazkir_no")->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -39,7 +41,7 @@ class ListStudents extends Component implements HasActions, HasSchemas, HasTable
                 //
             ])
             ->headerActions([
-                //
+                Action::make('CreateStudent')->label('Create Student')->url(route('student.create'))
             ])
             ->recordActions([
                   Action::make('edit')

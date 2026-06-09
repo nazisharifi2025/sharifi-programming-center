@@ -10,6 +10,7 @@ use Filament\Actions\Contracts\HasActions;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -33,6 +34,7 @@ class ListTeachers extends Component implements HasActions, HasSchemas, HasTable
                 TextColumn::make('user.email')->label('Email')->icon(Heroicon::Envelope)->iconColor('primary'),
                 TextColumn::make('salarie.amount')->badge(),
                 TextColumn::make('lastName'),
+                ImageColumn::make('image_url'),
                 TextColumn::make('degree_of_ducation')->color('primary')->badge(),
                 TextColumn::make('phone_number'),
                 TextColumn::make('bio')->toggleable(isToggledHiddenByDefault: true)->limit(20),
@@ -41,7 +43,7 @@ class ListTeachers extends Component implements HasActions, HasSchemas, HasTable
                 //
             ])
             ->headerActions([
-                //
+               Action::make('CreateTeacher')->label('Create Teacher')->url(route('teacher.create')),
             ])
             ->recordActions([
                 Action::make('edit')

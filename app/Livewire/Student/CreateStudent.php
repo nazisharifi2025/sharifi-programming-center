@@ -10,7 +10,9 @@ use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use App\Models\Student;
+use App\Models\User;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 
@@ -30,9 +32,9 @@ class CreateStudent extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-              Section::make('Create new Teacher')->description('Add New Teacher')->schema([
+              Section::make('Create new Student')->description('Add New Student')->schema([
+                Select::make('user_id')->options(User::query()->pluck('name', 'id'))->searchable()->required()->loadingMessage('please wait loding student'),
                 TextInput::make('lastName'),
-               TextInput::make('user_id'),
                FileUpload::make('img_url')->directory('images')->visibility('public'),
                TextInput::make('phone_number'),
                TextInput::make('tazkira_no'),
