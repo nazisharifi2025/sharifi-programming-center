@@ -15,6 +15,7 @@ use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\HtmlString;
 use Livewire\Component;
 
 class CreateTeacher extends Component implements HasActions, HasSchemas
@@ -49,11 +50,17 @@ class CreateTeacher extends Component implements HasActions, HasSchemas
                 "Master"=> "Master Degree",
                 "PhD"=> "PHD",
               ]),
+              Select::make('fiald_of_education')->options([
+                "Computer Science"=> "Computer Science",
+                "Political Science"=> "Political Science",
+                "English Literature"=> "English Literature",
+                "Enviromental Science"=> "Enviromental Science",
+              ]),
               TextInput::make('phone_number'),
               FileUpload::make('image_url')->directory('teacher_images')->visibility('public'),
               Textarea::make('bio'),
                     ]),
-                ])
+                ])->submitAction(new HtmlString('<button type="submit">Submit</button>'))
             ])
             ->statePath('data');
     }
