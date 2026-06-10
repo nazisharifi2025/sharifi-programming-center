@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-students/{record}' , editstudent::class)->name('student.edit');
     Route::get('/student-create' , CreateStudent::class)->name('student.create');
     Route::get('/manage-teacher' , ListTeachers::class)->name('teacher.index');
-    Route::get('/teacher-create' , CreateTeacher::class)->name('teacher.create');
+    // Route::get('/teacher-create' , CreateTeacher::class)->name('teacher.create');
     Route::get('/edit-teacher/{record}' , editTeacher::class)->name('teacher.edit');
     Route::get('/manage-user' , ListUsers::class)->name('user.index');
     Route::get('/manage-senf' , ListSinfs::class)->name('senf.index');
