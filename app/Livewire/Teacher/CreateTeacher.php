@@ -15,6 +15,7 @@ use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
 use Livewire\Component;
 
@@ -42,7 +43,6 @@ class CreateTeacher extends Component implements HasActions, HasSchemas
                         TextInput::make('role')->default('Teacher'),
                     ]),
                     Step::make('Teacher')->schema([
-                  Select::make('user_id')->options(User::query()->pluck('name', 'id'))->searchable()->required()->loadingMessage('please wait loding teacher'),
                   TextInput::make('lastName'),
               Select::make('degree_of_ducation')->options([
                 "secondary school"=> "Secondery School Piplome",
@@ -69,7 +69,23 @@ class CreateTeacher extends Component implements HasActions, HasSchemas
     {
         $data = $this->form->getState();
 
-        //
+        DB::transaction(function () use ($data){
+           $user = User::create([
+                "name"=> $data['name'],
+                "email"=> $data['email'],
+                "password"=> $data['password'],
+                "role"=> "Teacher"
+            ]);
+            $user->teacher()->create([
+                "lastName"=> $data['lastName'],
+                "degree_of_ducation"=> $data['degree_of_ducation'],
+                "fiald_of_education"=> $data['fiald_of_education'],
+                "phone_number"=> $data['phone_number'],
+                "image_url"=> $data['image_url'],
+                "bio"=> $data['bio'],
+            ]);
+            return redirect()->route('teacher.index');
+        });
     }
 
     public function render(): View

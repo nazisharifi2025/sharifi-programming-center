@@ -2,19 +2,20 @@
 
 namespace App\Livewire\Student;
 
+use App\Models\User;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Wizard;
+use Filament\Schemas\Components\Wizard\Step;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\HtmlString;
 use Livewire\Component;
-use App\Models\Student;
-use App\Models\User;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Section;
 
 class CreateStudent extends Component implements HasActions, HasSchemas
 {
@@ -32,25 +33,43 @@ class CreateStudent extends Component implements HasActions, HasSchemas
     {
         return $schema
             ->components([
-              Section::make('Create new Student')->description('Add New Student')->schema([
-                Select::make('user_id')->options(User::query()->pluck('name', 'id'))->searchable()->required()->loadingMessage('please wait loding student'),
+                
+          Wizard::make([
+            Step::make('User')->schema([
+                TextInput::make('name'),
+                TextInput::make('email')->required()->type('email'),
+                TextInput::make('password')->required()->type('password'),
+                TextInput::make('role')->default('Student'),
+            ]),
+            Step::make('Student')->schema([
                 TextInput::make('lastName'),
-               FileUpload::make('img_url')->directory('images')->visibility('public'),
-               TextInput::make('phone_number'),
-               TextInput::make('tazkira_no'),
-               ])
+                TextInput::make('phone_number'),
+                TextInput::make('tazkira_no'),
+                FileUpload::make('img_url')
+            ]),
+         ])->submitAction(new HtmlString('<button type="submit">Submit</button>'))
             ])
-            ->statePath('data')
-            ->model(Student::class);
+            ->statePath('data');
     }
 
-    public function create(): void
+    public function submit(): void
     {
         $data = $this->form->getState();
-
-        $record = Student::create($data);
-
-        $this->form->model($record)->saveRelationships();
+        DB::transaction(function() use ($data){
+              $user = User::create([
+                "name"=> $data['name'],
+                "email"=> $data['email'],
+                "password"=> $data['password'],
+                "role"=> "Teacher"
+            ]);
+            $user->student()->create([
+                "lastName"=> $data['lastName'],
+                "phone_number"=> $data['phone_number'],
+                "tazkira_no"=> $data['tazkira_no'],
+                "img_url"=> $data['img_url'],
+            ]);
+            return redirect()->route('student.index');
+        });
     }
 
     public function render(): View

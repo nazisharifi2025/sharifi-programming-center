@@ -9,6 +9,7 @@ class Teacher extends Model
     protected $fillable = [
         "lastName",
         "degree_of_ducation",
+        "fiald_of_education",
         "phone_number",
         "image_url",
         "bio",
