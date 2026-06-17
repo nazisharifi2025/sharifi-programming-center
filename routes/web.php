@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Payment\CreatePayment;
 use App\Livewire\Payment\EditPaymentt;
 use App\Livewire\Payment\ListPayment;
 use App\Livewire\Salarie\CreateSalarie;
@@ -37,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/manage-sudents' , ListStudents::class)->name('student.index');
     Route::get('/edit-students/{record}' , editstudent::class)->name('student.edit');
-    Route::get('/student-create' , CreateStudent::class)->name('student.create');
+    Route::get('/student-create' , CreateStudent::class)->name('student.create');   
     Route::get('/manage-teacher' , ListTeachers::class)->name('teacher.index');
     Route::get('/teacher-create' , CreateTeacher::class)->name('teacher.create');
     Route::get('/edit-teacher/{record}' , editTeacher::class)->name('teacher.edit');
@@ -46,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sinf-create' , CreateSinf::class)->name('senf.create');
     Route::get('/edit-senf' , editsinf::class)->name('senf.edit');
     Route::get('/manage-payment' , ListPayment::class)->name('payment.index');
-    // Route::get('/payment-create' , CreatePayment::class)->name('payment.create');
+Route::get('/payment-create' , CreatePayment::class)->name('payment.create');
     Route::get('/edit-payment/{record}' , EditPaymentt::class)->name('payment.edit');
     Route::get('/manage-salarie' , ListSalaries::class)->name('salarie.index');
     Route::get('/edit-salarie' , editSalarie::class)->name('salarie.edit');

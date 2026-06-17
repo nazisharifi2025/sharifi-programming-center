@@ -37,7 +37,7 @@ class ListPayment extends Component implements HasActions, HasSchemas, HasTable
                 //
             ])
             ->headerActions([
-                //
+                 Action::make('CreateStudent')->label('Create Student')->url(route('payment.create'))
             ])
             ->recordActions([
    Action::make('edit')
